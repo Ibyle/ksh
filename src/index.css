@@ -1,0 +1,76 @@
+/* @import url() FONT IMPORTS MUST ALWAYS BE AT THE VERY TOP OF THIS FILE, ABOVE THE TAILWIND IMPORTS — DO NOT DELETE THIS COMMENT */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
+/* CRITICAL: THE FOLLOWING TAILWIND IMPORTS MUST NEVER BE DELETED OR REORDERED — DO NOT DELETE THIS COMMENT */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* END TAILWIND IMPORTS — ALL OTHER CSS MUST GO BELOW THIS LINE */
+
+@layer base {
+  body {
+    @apply font-sans text-gray-900 bg-cream dark:bg-warmDark dark:text-gray-100 antialiased selection:bg-gold/30;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+@layer components {
+  /* E-Book Reading Styles */
+  .teaching-content {
+    @apply font-serif text-lg md:text-xl text-gray-800 dark:text-gray-200;
+    line-height: 1.8;
+  }
+  .teaching-content h1 {
+    @apply font-heading text-3xl md:text-4xl font-bold text-navy dark:text-cream mb-6 mt-8;
+  }
+  .teaching-content h2 {
+    @apply font-heading text-2xl md:text-3xl font-semibold text-navy dark:text-cream mb-4 mt-10;
+  }
+  .teaching-content h3 {
+    @apply font-heading text-xl md:text-2xl font-medium text-navy dark:text-cream mb-3 mt-8;
+  }
+  .teaching-content p {
+    @apply mb-6;
+  }
+  .teaching-content ul {
+    @apply list-disc pl-6 mb-6 space-y-2;
+  }
+  .teaching-content ol {
+    @apply list-decimal pl-6 mb-6 space-y-2;
+  }
+  .teaching-content li {
+    @apply pl-2;
+  }
+  .teaching-content strong {
+    @apply font-semibold text-gray-900 dark:text-white;
+  }
+  /* Styled Scripture Blockquotes */
+  .teaching-content blockquote {
+    @apply border-l-4 border-gold bg-gold/10 dark:bg-gold/5 px-6 py-5 my-8 rounded-r-lg font-serif italic text-gray-700 dark:text-gray-300 relative;
+  }
+  /* Scripture Reference Spans */
+  .teaching-content .verse {
+    @apply italic text-gold-dark dark:text-gold font-medium px-1;
+  }
+}
+/* Print Styles for PDF/Reading */
+@media print {
+  body {
+    @apply bg-white text-black;
+  }
+  nav, footer, .no-print {
+    display: none !important;
+  }
+  .teaching-content {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+  .teaching-content h1, .teaching-content h2 {
+    page-break-after: avoid;
+  }
+  .teaching-content img {
+    page-break-inside: avoid;
+  }
+}
